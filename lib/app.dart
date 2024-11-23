@@ -7,9 +7,23 @@ class Hommies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      home: SplashScreen(),
+    return GetMaterialApp(
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: const TextStyle(color: Color(0xffbFFFFFF)),
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.2),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide.none,
+          ),
+        ),
+
+
+
+      )
     );
   }
 }

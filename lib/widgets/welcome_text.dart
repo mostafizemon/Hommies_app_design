@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart' show SvgPicture;
 
 class WelcomeText extends StatelessWidget {
   final String welcome;
+
   const WelcomeText({super.key, required this.welcome});
 
   @override
@@ -12,14 +13,20 @@ class WelcomeText extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 15,),
-          Text(welcome,style: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-            letterSpacing: 1.3,
-          ),),
-          const SizedBox(height: 10,),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            welcome,
+            style: const TextStyle(
+              fontSize: 27,
+              color: Colors.white,
+              fontFamily: "Poppins-SemiBold.ttf",
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
           SvgPicture.asset("assets/images/logo.svg"),
         ],
       ),
