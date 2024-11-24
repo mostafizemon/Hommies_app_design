@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:hommies/screens/registration_screen/register_screen.dart';
 import 'package:hommies/widgets/button_login_signup.dart';
 import 'package:hommies/widgets/custom_socialmedia_icon.dart';
 import 'package:hommies/widgets/signin_login_customtext.dart';
 import 'package:hommies/widgets/textfield_custom.dart';
 import 'package:hommies/widgets/welcome_text.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     Size screen = MediaQuery.sizeOf(context);
@@ -32,21 +30,19 @@ class _LoginScreenState extends State<LoginScreen> {
             const SafeArea(
               child: WelcomeText(welcome: "Welcome"),
             ),
+
             Positioned(
-              top: screen.height * 0.20,
+              top: screen.height *0.10,
               right: 0,
-              child: Image.asset(
-                "assets/images/avater.png",
-                height: 350,
-              ),
+              child: Image.asset("assets/images/avater.png",height: 350,),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: SingleChildScrollView(
                 reverse: true,
                 child: Container(
-                  height: screen.height * .55 -
-                      MediaQuery.of(context).viewInsets.bottom * .5,
+                  height: screen.height * .65 -
+                      MediaQuery.of(context).viewInsets.bottom*.80,
                   width: screen.width,
                   decoration: BoxDecoration(
                       color: const Color(0xffb08000e).withOpacity(.35),
@@ -60,28 +56,31 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Column(
                         children: [
                           const Text(
-                            "Welcome back",
+                            "Get Started",
                             style: TextStyle(
                                 fontFamily: "fonts/Poppins-Medium.ttf",
-                                fontSize: 27,
+                                fontSize: 28,
                                 color: Colors.white),
-                          ),
-                          const Text(
-                            "we missed you",
-                            style: TextStyle(
-                              fontFamily: "fonts/Poppins-Regular.ttf",
-                              fontSize: 22,
-                              color: Color(0xffbc983fb),
-                            ),
                           ),
                           const SizedBox(height: 40),
                           const TextfieldCustom(
-                            hinttext: "@username",
+                            hinttext: "yourname@gmail.com",
                             prefixicon: Icon(
-                              Icons.person,
+                              Icons.email_outlined,
                               color: Colors.white,
                             ),
                           ),
+
+                          const SizedBox(height: 20),
+                          const TextfieldCustom(
+                            hinttext: "@yourname",
+                            prefixicon: Icon(
+                              Icons.person_outline,
+                              color: Colors.white,
+                            ),
+                          ),
+
+
                           const SizedBox(height: 20),
                           const TextfieldCustom(
                               hinttext: "password",
@@ -90,17 +89,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 color: Colors.white,
                               )),
                           const SizedBox(height: 30),
-                          InkWell(
-                            onTap: () {
-                              Get.to(() => const RegisterScreen());
-                            },
-                            child:
-                                ButtonLoginSignup(button_text: "Log in",onTap: () => Get.to(() => const RegisterScreen()),),
-                          ),
+                          const ButtonLoginSignup(button_text: "Sign Up"),
                           const SizedBox(height: 25),
                           const SigninLoginCustomtext(
-                              haveaccount: "Don't have an account ?",
-                              signuplogin: " Sign up"),
+                              haveaccount: "Already have an account ?",
+                              signuplogin: " Log in"),
                           const SizedBox(height: 30),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
